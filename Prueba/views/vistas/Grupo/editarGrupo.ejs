@@ -1,0 +1,37 @@
+<h2>Editar Materia - <%= grupoAEditar.nombreGrupo%></h2>
+<form action="/Grupo/EditarGrupo" method="post">
+
+<div class="col-sm-7">
+	<div class="form-group">
+		<label for="exampleInputEmail1">Nombre</label>
+		<input type="text" class="form-control" placeholder="Ingrese el nombre del grupo" name="nombreGrupo" value="<%=grupoAEditar.nombreGrupo%>">
+	</div>
+	
+	<div class="form-group">
+		<label for="exampleInputEmail1">Tópico</label>
+		<input type="text" class="form-control" placeholder="Ingrese el número máximos de estudiantes" name="numeroMaximoEstudiante" value="<%=grupoAEditar.numeroMaximoEstudiante%>">
+	</div>
+		
+	<input type="hidden" name="idGrupo" value="<%= grupoAEditar.id %>">
+	
+	<div class="form-group">
+			<label for="">Materia</label>
+
+			<select class="form-control" name="idMateria">
+				<% for(var i=0; i<materias.length; i++){ %>
+					<option value='<%=materias[i].id%>'>
+						<%=materias[i].nombreMateria%>
+					</option>
+					<%  } %>
+			</select>
+		</div>
+	
+	
+	<button type="submit" class="btn btn-success">Editar Grupo =)</button>
+	<a href="/ListarGrupos" class="btn btn-warning">Cancelar</a>
+	
+</div>
+
+
+	
+</form>

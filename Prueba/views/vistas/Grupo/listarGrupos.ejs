@@ -1,0 +1,43 @@
+<h1>Lista de Grupos</h1>
+
+<div class="row">
+	<div class="col-sm-9">
+		<p>Aqui se listan todas los grupos ingresados en el sistema</p>
+	</div>
+	<div class="col-sm-3">
+		<a href="/CrearGrupo" class="btn btn-block btn-success">Crear Grupo</a>
+	</div>
+</div>
+
+
+
+<% for(var i=0; i<grupos.length;i++) {%>
+	<div class="row ma-margen-top-bottom ma-border">
+
+		<div class="col-sm-4 text-center ma-padding-top-bottom">
+			<h3> <%= grupos[i].nombreGrupo%></h3>
+			<input type="hidden" name="idGrupo" value="<%= grupos[i].idGrupo %>">
+
+		</div>
+
+		<div class="col-sm-5 text-center" style="margin-top:30px">
+			<p> Estudiantes:
+				<%= grupos[i].numeroMaximoEstudiante%>
+			</p>
+			<p> Materia: 
+				<%= grupos[i].idMateria%>
+				
+			</p>
+		</div>
+		<div class="col-sm-1"></div>
+		<div class="col-sm-1 ma-padding-top-bottom">
+			<a href="/Grupo/borrarGrupo?id=<%= grupos[i].id%>" class="btn btn-danger btn-block">X</a>
+			<a href="/EditarGrupo?id=<%= grupos[i].id%>" class="btn btn-info btn-block">Edit</a>
+			
+		</div>
+		<br>
+		
+
+	</div>
+	
+	<% }%>

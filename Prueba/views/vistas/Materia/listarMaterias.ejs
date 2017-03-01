@@ -1,0 +1,44 @@
+<h1>Lista de Materias</h1>
+
+<div class="row">
+	<div class="col-sm-9">
+		<p>Aqui se listan todas las materias ingresadas en el sistema</p>
+	</div>
+	<div class="col-sm-3">
+		<a href="/CrearMateria" class="btn btn-block btn-success">Crear Materia</a>
+	</div>
+</div>
+
+
+
+<% for(var i=0; i<materias.length;i++) {%>
+	<div class="row ma-margen-top-bottom ma-border">
+
+		<div class="col-sm-4 text-center ma-padding-top-bottom">
+			<h3> <%= materias[i].nombreMateria%></h3>
+			<input type="hidden" name="idMateria" value="<%= materias[i].idMateria %>">
+<!--			<div class="row"><a href="/ListarGrupos?id=<%= materias[i].id%>">Listar Grupos</a></div>-->
+		</div>
+
+		<div class="col-sm-5 text-center" style="margin-top:30px">
+			<p>
+				<%= materias[i].topicoMateria%>
+			</p>
+			<p> Fecha de Creacion: 
+				<%= materias[i].fechaCreacion.getDate()%> / 
+				<%= materias[i].fechaCreacion.getMonth() %> / 
+				<%= materias[i].fechaCreacion.getFullYear()%>
+			</p>
+		</div>
+		<div class="col-sm-1"></div>
+		<div class="col-sm-1 ma-padding-top-bottom">
+			<a href="/Materia/borrarMateria?id=<%= materias[i].id%>" class="btn btn-danger btn-block">X</a>
+			<a href="/EditarMateria?id=<%= materias[i].id%>" class="btn btn-info btn-block">Edit</a>
+			
+		</div>
+		<br>
+		
+
+	</div>
+	
+	<% }%>
